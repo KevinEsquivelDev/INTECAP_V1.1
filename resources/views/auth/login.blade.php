@@ -12,7 +12,6 @@
         <link rel="stylesheet"  href="{!! asset('css/util.css') !!}">
         <link rel="stylesheet"  href="{!! asset('css/main.css') !!}">
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
         <!--===============================================================================================-->
 
     </head>
@@ -24,12 +23,19 @@
                 <div class="login100-pic js-tilt" data-tilt>
                     <img src="images/logo_intecap.png" alt="IMG">
                 </div>
+
                 <!-- EL LOGIN EMPIEZA A ACÁ-->
+
                 <form class="login100-form validate-form" method="POST" action="{{ route('login') }}">
                     @csrf
-                        <span class="login100-form-title">
-                            Iniciar Sesión
-                        </span>
+
+                    <center>
+                        <img src="images/bandera.png" width="75" height="75">
+                    </center>
+
+                    <span class="login100-form-title">
+                        Bienvenido
+                    </span>
 
                         <!-- EMAIL-->
                         <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
