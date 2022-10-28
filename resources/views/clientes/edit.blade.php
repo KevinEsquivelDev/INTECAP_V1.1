@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Editar participante
+    Editar cliente
 @endsection
 
 @section('content')
@@ -13,14 +13,14 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">Modificar participante</span>
+                        <span class="card-title">Modificar cliente</span>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('participantes.update', $participante->id_part) }}"  role="form" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('clientes.update', $cliente->id_cliente) }}"  role="form" enctype="multipart/form-data">
                             {{ method_field('PATCH') }}
                             @csrf
 
-                            @livewire('participantes-component')
+                            @livewire('clientes-component')
 
                         </form>
                     </div>

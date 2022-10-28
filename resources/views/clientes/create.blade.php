@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Crear participante
+    Crear cliente
 @endsection
 
 @section('content')
@@ -13,12 +13,12 @@
 
                     <div class="card card-default">
 
-                        <div class="card-header text-center text-white bg-primary"> <i class="fas fa-user-graduate"></i> Crear participante</div>
+                        <div class="card-header text-center text-white bg-primary"> <i class="fas fa-user-graduate"></i> Crear cliente</div>
 
                         <div class="card-body">
-                            <form method="POST" action="{{ route('participantes.store') }}"  role="form" enctype="multipart/form-data">
+                            <form method="POST" action="{{ route('clientes.store') }}"  role="form" enctype="multipart/form-data">
                                 @csrf
-                                @livewire('participantes-component')
+                                @livewire('clientes-component')
                             </form>
                         </div>
                     </div>

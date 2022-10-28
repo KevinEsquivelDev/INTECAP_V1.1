@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Participantes
+    clientes
 @endsection
 
 @section('content')
@@ -13,11 +13,11 @@
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                             <span id="card_title">
-                              <i class="fas fa-user-graduate"></i>  {{ __('participantes') }}
+                              <i class="fas fa-user-graduate"></i>  {{ __('clientes') }}
                             </span>
                             <div class="float-right">
-                                <a href="{{ route('participantes.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                    <i class="fas fa-plus-circle"></i>  {{ __('Agregar participante') }}
+                                <a href="{{ route('clientes.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                    <i class="fas fa-plus-circle"></i>  {{ __('Agregar cliente') }}
                                 </a>
                             </div>
                         </div>
@@ -36,28 +36,28 @@
                                     <th>Id</th>
                                     <th>Nombre</th>
                                     <th>Apellidos</th>
-                                    <th>Carnet</th>
+                                    <th>Direccion</th>
                                     <th>Teléfono</th>
                                     <th>CUI</th>
                                     <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach ($participantes as $participante)
+                                @foreach ($clientes as $cliente)
                                     <tr>
-                                        <td>{{ $participante->id_part }}</td>
-                                        <td>{{ $participante->nombre}}</td>
-                                        <td>{{ $participante->apellidos}}</td>
-                                        <td>{{ $participante->carnet}}</td>
-                                        <td>{{ $participante->tel_part}}</td>
-                                        <td>{{ $participante->cui}}</td>
+                                        <td>{{ $cliente->id_cliente }}</td>
+                                        <td>{{ $cliente->nombre}}</td>
+                                        <td>{{ $cliente->apellidos}}</td>
+                                        <td>{{ $cliente->direccion}}</td>
+                                        <td>{{ $cliente->tel_cliente}}</td>
+                                        <td>{{ $cliente->cui}}</td>
                                         <td>
-                                            <form action="{{ route('participantes.destroy',$participante->id_part) }}" id="{{$participante->id_part}}" method="POST">
-                                                <a class="btn btn-sm btn-primary " href="{{ route('participantes.show',$participante->id_part) }}"><i class="fa fa-fw fa-eye"></i> info</a>
-                                                <a class="btn btn-sm btn-success" href="{{ route('participantes.edit',$participante->id_part) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
+                                            <form action="{{ route('clientes.destroy',$cliente->id_cliente) }}" id="{{$cliente->id_cliente}}" method="POST">
+                                                <a class="btn btn-sm btn-primary " href="{{ route('clientes.show',$cliente->id_cliente) }}"><i class="fa fa-fw fa-eye"></i> info</a>
+                                                <a class="btn btn-sm btn-success" href="{{ route('clientes.edit',$cliente->id_cliente) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="button" onclick="eliminarCatalogo({{$participante->id_part}})" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Eliminar</button>
+                                                <button type="button" onclick="eliminarCatalogo({{$cliente->id_cliente}})" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Eliminar</button>
                                             </form>
                                         </td>
                                     </tr>
@@ -67,7 +67,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $participantes->links() !!}
+                {!! $clientes->links() !!}
             </div>
         </div>
     </div>
@@ -79,7 +79,7 @@
     <script>
         function eliminarCatalogo(User){
             Swal.fire({
-                title: 'Estas seguro de eliminar el participante?',
+                title: 'Estas seguro de eliminar el cliente?',
                 text: "No podrás revertir esta acción!",
                 icon: 'warning',
                 showCancelButton: true,
@@ -91,7 +91,7 @@
                     document.getElementById(User).submit()
                     Swal.fire(
                         'Eliminado!',
-                        'El registro del participante desapareció.',
+                        'El registro del cliente desapareció.',
                         'success'
                     )
                 }

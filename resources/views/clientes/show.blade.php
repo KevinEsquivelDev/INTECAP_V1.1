@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    {{ $participante->nombre ?? 'Mostrar participante' }}
+    {{ $cliente->nombre ?? 'Mostrar cliente' }}
 @endsection
 
 @section('content')
@@ -11,38 +11,38 @@
                 <div class="card bg-light border-primary ">
                     <div class="card-header text-center text-white bg-primary">
                         <div class="float-left">
-                            <span class="card-title"><i class="fas fa-info"></i>  Información del participante</span>
+                            <span class="card-title"><i class="fas fa-info"></i>  Información del cliente</span>
                         </div>
                     </div>
 
                     <div class="card-body">
 
                         <div class="form-group">
-                            <strong>Id_participante:</strong>
-                            {{ $participante->id_part }}
+                            <strong>Id_cliente:</strong>
+                            {{ $cliente->id_cliente }}
                         </div>
                         <div class="form-group">
                             <strong>Nombre:</strong>
-                            {{ $participante->nombre }}
+                            {{ $cliente->nombre }}
                         </div>
                         <div class="form-group">
                             <strong>Apellidos:</strong>
-                            {{ $participante->apellidos }}
+                            {{ $cliente->apellidos }}
                         </div>
                         <div class="form-group">
-                            <strong>Carnet:</strong>
-                            {{ $participante->carnet }}
+                            <strong>Dirección:</strong>
+                            {{ $cliente->direccion }}
                         </div>
                         <div class="form-group">
                             <strong>Teléfono:</strong>
-                            {{ $participante->tel_part }}
+                            {{ $cliente->tel_cliente }}
                         </div>
                         <div class="form-group">
                             <strong>CUI:</strong>
-                            {{ $participante->cui }}
+                            {{ $cliente->cui }}
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary mt-2" href="{{ route('participantees.index') }}"> <i class="fas fa-arrow-alt-circle-left"></i> Atras</a>
+                            <a class="btn btn-primary mt-2" href="{{ route('clientes.index') }}"> <i class="fas fa-arrow-alt-circle-left"></i> Atras</a>
                             <a class="btn btn-success col mt-2 " onclick="javascript:window.print()"><i class="fas fa-cloud-download-alt"> </i> Exportar PDF </a>
                         </div>
                     </div>
