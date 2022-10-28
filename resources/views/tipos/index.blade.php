@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Marcas
+    Tipos
 @endsection
 
 @section('content')
@@ -13,11 +13,11 @@
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                             <span id="card_title">
-                              <i class="fas fa-user-graduate"></i>  {{ __('Marcas') }}
+                              <i class="fas fa-user-graduate"></i>  {{ __('tipos') }}
                             </span>
                             <div class="float-right">
-                                <a href="{{ route('marcas.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                    <i class="fas fa-plus-circle"></i>  {{ __('Agregar marca') }}
+                                <a href="{{ route('tipos.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                    <i class="fas fa-plus-circle"></i>  {{ __('Agregar tipo') }}
                                 </a>
                             </div>
                         </div>
@@ -34,24 +34,24 @@
                                 <thead class="thead">
                                 <tr>
                                     <th>Id</th>
-                                    <th>Marca</th>
+                                    <th>tipo</th>
                                     <th>Descripción</th>
                                     <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach ($marcas as $marca)
+                                @foreach ($tipos as $tipo)
                                     <tr>
-                                        <td>{{ $marca->id_marca }}</td>
-                                        <td>{{ $marca->marca}}</td>
-                                        <td>{{ $marca->descripcion}}</td>
+                                        <td>{{ $tipo->id_tipo }}</td>
+                                        <td>{{ $tipo->tipo}}</td>
+                                        <td>{{ $tipo->descripcion}}</td>
                                         <td>
-                                            <form action="{{ route('marcas.destroy',$marca->id_marca) }}" id="{{$marca->id_marca}}" method="POST">
-                                                <a class="btn btn-sm btn-primary " href="{{ route('marcas.show',$marca->id_marca) }}"><i class="fa fa-fw fa-eye"></i> info</a>
-                                                <a class="btn btn-sm btn-success" href="{{ route('marcas.edit',$marca->id_marca) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
+                                            <form action="{{ route('tipos.destroy',$tipo->id_tipo) }}" id="{{$tipo->id_tipo}}" method="POST">
+                                                <a class="btn btn-sm btn-primary " href="{{ route('tipos.show',$tipo->id_tipo) }}"><i class="fa fa-fw fa-eye"></i> info</a>
+                                                <a class="btn btn-sm btn-success" href="{{ route('tipos.edit',$tipo->id_tipo) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="button" onclick="eliminarCatalogo({{$marca->id_marca}})" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Eliminar</button>
+                                                <button type="button" onclick="eliminarCatalogo({{$tipo->id_tipo}})" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Eliminar</button>
                                             </form>
                                         </td>
                                     </tr>
@@ -61,7 +61,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $marcas->links() !!}
+                {!! $tipos->links() !!}
             </div>
         </div>
     </div>
@@ -73,7 +73,7 @@
     <script>
         function eliminarCatalogo(User){
             Swal.fire({
-                title: 'Estas seguro de eliminar la marca?',
+                title: 'Estas seguro de eliminar el tipo?',
                 text: "No podrás revertir esta acción!",
                 icon: 'warning',
                 showCancelButton: true,
@@ -85,7 +85,7 @@
                     document.getElementById(User).submit()
                     Swal.fire(
                         'Eliminado!',
-                        'El registro de la marca desapareció.',
+                        'El registro del tipo desapareció.',
                         'success'
                     )
                 }
